@@ -3,87 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbis App</title>
+    <title>Live Circles | Prototype</title>
+   <link rel="stylesheet" href="main1.css">
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Orbis</h1>
-        <nav>
-            <a href="#">Home</a> |
-            <a href="#">Features</a> |
-            <a href="#">Dashboard</a> |
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <div id="auth-container">
+    <div class="auth-card" id="login-card">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Enter your details to join the circle.</p>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="login-username" placeholder="Enter username" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Secret Key</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+            </div>
 
-    <hr>
+            <button type="submit" class="btn-primary">Join Space</button>
+        </form>
+        
+        <p class="switch-text">New here? <a href="#" onclick="toggleAuth('register')">Create an temporary account</a></p>
+    </div>
 
-    <!-- Main Section -->
-    <main>
-
-        <!-- Hero Section -->
-        <section>
-            <h2>Welcome to Orbis</h2>
-            <p>Your intelligent system for managing everything efficiently.</p>
-            <button>Get Started</button>
-        </section>
-
-        <hr>
-
-        <!-- Features Section -->
-        <section>
-            <h2>Features</h2>
-
-            <article>
-                <h3>AI Assistance</h3>
-                <p>Smart automation and intelligent responses.</p>
-            </article>
-
-            <article>
-                <h3>Task Management</h3>
-                <p>Organize and track your work easily.</p>
-            </article>
-
-            <article>
-                <h3>Data Insights</h3>
-                <p>Analyze and visualize your data.</p>
-            </article>
-
-        </section>
-
-        <hr>
-
-
-        <hr>
-
-        <!-- Contact Section -->
-        <section>
-            <h2>Contact Us</h2>
-
-            <form>
-                <label>Name:</label><br>
-                <input type="text" name="name"><br><br>
-
-                <label>Email:</label><br>
-                <input type="email" name="email"><br><br>
-
-                <label>Message:</label><br>
-                <textarea name="message"></textarea><br><br>
-
-                <button type="submit">Send</button>
-            </form>
-        </section>
-
-    </main>
-
-    <hr>
-
+    <div class="auth-card" id="register-card" style="display: none;">
+        <h2>Create Account</h2>
+        <p class="subtitle">Set up a temporary identity.</p>
+        
+        <form id="register-form">
+    <div class="input-group">
+        <label>Choose Username</label>
+        <input type="text" id="reg-username" placeholder="Pick a username" required>
+    </div>
     
-    <footer>
-        <p>&copy; 2026 Orbis. All rights reserved.</p>
-    </footer>
+    <div class="input-group">
+        <label>Create Secret Key</label>
+        <input type="password" id="reg-password" placeholder="Make it hard" required>
+    </div>
 
+    <div class="avatar-section-title">Select Avatar</div>
+    <div class="avatar-grid">
+        <div class="avatar-option" data-avatar="🦊">🦊</div>
+        <div class="avatar-option" data-avatar="🐸">🐸</div>
+        <div class="avatar-option" data-avatar="🤖">🤖</div>
+        <div class="avatar-option" data-avatar="🐈">🐈</div>
+        <div class="avatar-option" data-avatar="🐿️">🐿️</div>
+        <div class="avatar-option" data-avatar="🦚">🦚</div>
+        <div class="avatar-option" data-avatar="🐍">🐍</div>
+        <div class="avatar-option" data-avatar="☃️">☃️</div>
+    </div>
+
+    <button type="submit" class="btn-primary">Generate Identity</button>
+</form>
+        
+        <p class="switch-text">Already have a key? <a href="#" onclick="toggleAuth('login')">Back to login</a></p>
+    </div>
+</div>
+<script>
+        // This function handles swapping between login and register cards
+        function toggleAuth(view) {
+            const loginCard = document.getElementById('login-card');
+            const registerCard = document.getElementById('register-card');
+
+            if (view === 'register') {
+                loginCard.style.display = 'none';
+                registerCard.style.display = 'block';
+            } else {
+                loginCard.style.display = 'block';
+                registerCard.style.display = 'none';
+            }
+        }
+    </script>
 </body>
-</html>
