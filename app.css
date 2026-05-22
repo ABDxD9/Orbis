@@ -1,17 +1,16 @@
 :root {
-    --bg: #051F20;         /* Deepest Obsidian Green */
-    --card-bg: #0B2B26;    /* Dark Forest Green for containers */
-    --input-bg: #163832;   /* Medium Forest for fields */
-    --border-line: #235347;/* Emerald outline */
-    --accent: #8EB69B;     /* Pastel Sage Green for primary focus */
-    --text-bright: #DAF1DE;/* Crisp Mint-White for clear text */
-    --text-dim: #8EB69B;   /* Sage for labels and secondary text */
+    --bg: #051F20;        
+    --card-bg: #0B2B26;    
+    --input-bg: #163832;   
+    --border-line: #235347;
+    --accent: #8EB69B;    
+    --text-bright: #DAF1DE;
+    --text-dim: #8EB69B;   
 }
 
 body {
     margin: 0;
     padding: 0;
-    /* Updated to look for your newly renamed file */
     background-image: linear-gradient(rgba(5, 31, 32, 0.8), rgba(5, 31, 32, 0.8)), url('download.jpg');
     
     background-size: cover;
@@ -29,7 +28,6 @@ body {
     overflow-y: auto;
 }
 
-/* --- Layout Navigation Bar Styling --- */
 .main-header {
     width: 100%;
     max-width: 1200px;
@@ -82,7 +80,6 @@ body {
     color: var(--bg);
 }
 
-/* --- Content Frame Wrapper --- */
 .content-wrapper {
     width: 100%;
     max-width: 800px;
@@ -101,7 +98,6 @@ body {
     animation: fadeIn 0.3s ease-out;
 }
 
-/* --- Homepage Text Layouts --- */
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
@@ -125,7 +121,6 @@ body {
     max-width: 650px;
 }
 
-/* --- Authentication Card Boxes --- */
 .auth-card {
     background: var(--card-bg);
     backdrop-filter: blur(20px);
@@ -180,7 +175,6 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .switch-text { font-size: 13px; color: var(--text-dim); margin-top: 20px; opacity: 0.8; }
 .switch-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-/* --- Avatar Grid Elements --- */
 .avatar-section-title {
     text-align: left;
     font-size: 11px;
@@ -224,7 +218,6 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     transform: scale(1.1);
 }
 
-/* --- Animations --- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
