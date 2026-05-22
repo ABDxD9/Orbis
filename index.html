@@ -3,68 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prototype</title>
-   <link rel="stylesheet" href="main1.css">
+    <title>Live Circles | Prototype</title>
+    <link rel="stylesheet" href="main1.css">
 </head>
 <body>
 
-    <div id="auth-container">
-    <div class="auth-card" id="login-card">
-        <h2>Welcome Back</h2>
-        <p class="subtitle">Enter your details to join the circle.</p>
-        
-        <form id="login-form">
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" id="login-username" placeholder="Enter username" required>
+    <header class="main-header">
+         <div class="logo" onclick="showPage('home')">🌐 Orbis</div>
+         <nav class="nav-links">
+             <a href="#" onclick="showPage('home')">Home</a>
+              <a href="#" onclick="showPage('about')">About Us</a>
+             <a href="#" onclick="showPage('updates')">Updates</a>
+         </nav>
+         <button class="btn-nav-auth" onclick="showPage('auth')">Open App</button>
+    </header>
+
+    <main class="content-wrapper">
+
+        <section id="page-home" class="web-page">
+            <h1 class="hero-title">Your Temporary Digital Home</h1>
+            <p class="hero-subtitle">Imagine a place where live circles form naturally, conversations flow securely via ephemeral encryption, and everything completely vanishes the moment you step away.</p>
+            <div class="hero-cta-group">
+                <button class="btn-primary" onclick="showPage('auth')" style="width: auto; padding: 16px 32px;">Launch Portal</button>
             </div>
-            
-            <div class="input-group">
-                <label>Secret Key</label>
-                <input type="password" id="login-password" placeholder="••••••••" required>
+        </section>
+
+        <section id="page-about" class="web-page" style="display: none;">
+            <h2>Who We Are</h2>
+            <p class="page-text">We are an anomaly project building a space free from digital tracking footprints. LiveCircles maps real-time user presences dynamically using decentralized logic. No permanent logs, no tracking telemetry, total zero-retention architecture.</p>
+        </section>
+
+        <section id="page-updates" class="web-page" style="display: none;">
+            <h2>Updates</h2>
+            <p class="page-text" style="color: var(--text-dim);">Future roadmap modifications will appear here.</p>
+        </section>
+
+        <section id="page-auth" class="web-page" style="display: none;">
+            <div id="auth-container">
+                
+                <div class="auth-card" id="login-card">
+                    <h2>Welcome Back</h2>
+                    <p class="subtitle">Enter your details to join the circle.</p>
+                    
+                    <form id="login-form" onsubmit="handleAuthSubmit(event, 'login')">
+                        <div class="input-group">
+                            <label>Username</label>
+                            <input type="text" id="login-username" placeholder="Enter username" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Secret Key</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Join Space</button>
+                    </form>
+                    
+                    <p class="switch-text">New here? <a href="#" onclick="toggleAuth('register')">Create an ephemeral account</a></p>
+                </div>
+
+                <div class="auth-card" id="register-card" style="display: none;">
+                    <h2>Create Account</h2>
+                    <p class="subtitle">Set up a temporary identity.</p>
+                    
+                    <form id="register-form" onsubmit="handleAuthSubmit(event, 'register')">
+                        <div class="input-group">
+                            <label>Choose Username</label>
+                            <input type="text" id="reg-username" placeholder="Pick a handle" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Create Secret Key</label>
+                            <input type="password" id="reg-password" placeholder="Make it strong" required>
+                        </div>
+
+                        <div class="avatar-section-title">Select Avatar</div>
+                        <div class="avatar-grid">
+                                 <div class="avatar-option" data-avatar="🦊">🦊</div>
+                                 <div class="avatar-option" data-avatar="🐸">🐸</div>
+                                 <div class="avatar-option" data-avatar="🤖">🤖</div>
+                                 <div class="avatar-option" data-avatar="🐈">🐈</div>
+                                 <div class="avatar-option" data-avatar="🐿️">🐿️</div>
+                                 <div class="avatar-option" data-avatar="🦚">🦚</div>
+                                 <div class="avatar-option" data-avatar="🐍">🐍</div>
+                                 <div class="avatar-option" data-avatar="☃️">☃️</div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Generate Identity</button>
+                    </form>
+                    
+                    <p class="switch-text">Already have a key? <a href="#" onclick="toggleAuth('login')">Back to login</a></p>
+                </div>
+
             </div>
+        </section>
 
-            <button type="submit" class="btn-primary">Join Space</button>
-        </form>
-        
-        <p class="switch-text">New here? <a href="#" onclick="toggleAuth('register')">Create an temporary account</a></p>
-    </div>
+    </main>
 
-    <div class="auth-card" id="register-card" style="display: none;">
-        <h2>Create Account</h2>
-        <p class="subtitle">Set up a temporary identity.</p>
-        
-        <form id="register-form">
-    <div class="input-group">
-        <label>Choose Username</label>
-        <input type="text" id="reg-username" placeholder="Pick a username" required>
-    </div>
-    
-    <div class="input-group">
-        <label>Create Secret Key</label>
-        <input type="password" id="reg-password" placeholder="Make it hard" required>
-    </div>
+    <script>
+        // 1. Navigation Panel Swapping
+        function showPage(pageId) {
+            document.querySelectorAll('.web-page').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById('page-' + pageId).style.display = 'flex';
+        }
 
-    <div class="avatar-section-title">Select Avatar</div>
-    <div class="avatar-grid">
-        <div class="avatar-option" data-avatar="🦊">🦊</div>
-        <div class="avatar-option" data-avatar="🐸">🐸</div>
-        <div class="avatar-option" data-avatar="🤖">🤖</div>
-        <div class="avatar-option" data-avatar="🐈">🐈</div>
-        <div class="avatar-option" data-avatar="🐿️">🐿️</div>
-        <div class="avatar-option" data-avatar="🦚">🦚</div>
-        <div class="avatar-option" data-avatar="🐍">🐍</div>
-        <div class="avatar-option" data-avatar="☃️">☃️</div>
-    </div>
-
-    <button type="submit" class="btn-primary">Generate Identity</button>
-</form>
-        
-        <p class="switch-text">Already have a key? <a href="#" onclick="toggleAuth('login')">Back to login</a></p>
-    </div>
-</div>
-<script>
-        // This function handles swapping between login and register cards
+        // 2. Auth Subcard Swapping (Login vs Register)
         function toggleAuth(view) {
             const loginCard = document.getElementById('login-card');
             const registerCard = document.getElementById('register-card');
@@ -77,5 +122,35 @@
                 registerCard.style.display = 'none';
             }
         }
+
+        // 3. Interactive Avatar Selection Selector
+        const avatarOptions = document.querySelectorAll('.avatar-option');
+        let chosenAvatar = null;
+
+        avatarOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                avatarOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                chosenAvatar = option.getAttribute('data-avatar');
+                console.log("Selected Avatar:", chosenAvatar);
+            });
+        });
+
+        // 4. Form Action Execution (Fix for your buttons!)
+        function handleAuthSubmit(event, mode) {
+            event.preventDefault(); // Prevents page refresh breakdown
+            
+            if (mode === 'register' && !chosenAvatar) {
+                alert("Please select an avatar entity before entering!");
+                return;
+            }
+
+            const username = mode === 'register' 
+                ? document.getElementById('reg-username').value 
+                : document.getElementById('login-username').value;
+
+            alert(`Identity Confirmed: Welcome ${username || 'Agent'}. Next step will launch your interactive circle layout map!`);
+        }
     </script>
 </body>
+</html>
