@@ -1,81 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Circles | Prototype</title>
-   <link rel="stylesheet" href="main1.css">
-</head>
-<body>
+:root {
+    --bg: #051F20;         
+    --card-bg: #0B2B26;   
+    --input-bg: #163832;   
+    --border-line: #235347;
+    --accent: #8EB69B;     
+    --text-bright: #DAF1DE;
+    --text-dim: #8EB69B;
+}
 
-    <div id="auth-container">
-    <div class="auth-card" id="login-card">
-        <h2>Welcome Back</h2>
-        <p class="subtitle">Enter your details to join the circle.</p>
-        
-        <form id="login-form">
-            <div class="input-group">
-                <label>Username</label>
-                <input type="text" id="login-username" placeholder="Enter username" required>
-            </div>
-            
-            <div class="input-group">
-                <label>Secret Key</label>
-                <input type="password" id="login-password" placeholder="••••••••" required>
-            </div>
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text-bright);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-            <button type="submit" class="btn-primary">Join Space</button>
-        </form>
-        
-        <p class="switch-text">New here? <a href="#" onclick="toggleAuth('register')">Create an temporary account</a></p>
-    </div>
+.auth-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-line);
+    padding: 40px;
+    border-radius: 28px;
+    width: 350px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    text-align: center;
+}
 
-    <div class="auth-card" id="register-card" style="display: none;">
-        <h2>Create Account</h2>
-        <p class="subtitle">Set up a temporary identity.</p>
-        
-        <form id="register-form">
-    <div class="input-group">
-        <label>Choose Username</label>
-        <input type="text" id="reg-username" placeholder="Pick a username" required>
-    </div>
-    
-    <div class="input-group">
-        <label>Create Secret Key</label>
-        <input type="password" id="reg-password" placeholder="Make it hard" required>
-    </div>
+h2 { margin-top: 0; font-weight: 600; color: var(--text-bright); }
 
-    <div class="avatar-section-title">Select Avatar</div>
-    <div class="avatar-grid">
-        <div class="avatar-option" data-avatar="🦊">🦊</div>
-        <div class="avatar-option" data-avatar="🐸">🐸</div>
-        <div class="avatar-option" data-avatar="🤖">🤖</div>
-        <div class="avatar-option" data-avatar="🐈">🐈</div>
-        <div class="avatar-option" data-avatar="🐿️">🐿️</div>
-        <div class="avatar-option" data-avatar="🦚">🦚</div>
-        <div class="avatar-option" data-avatar="🐍">🐍</div>
-        <div class="avatar-option" data-avatar="☃️">☃️</div>
-    </div>
+.subtitle { color: var(--text-dim); font-size: 14px; margin-bottom: 30px; opacity: 0.8; }
 
-    <button type="submit" class="btn-primary">Generate Identity</button>
-</form>
-        
-        <p class="switch-text">Already have a key? <a href="#" onclick="toggleAuth('login')">Back to login</a></p>
-    </div>
-</div>
-<script>
-        // This function handles swapping between login and register cards
-        function toggleAuth(view) {
-            const loginCard = document.getElementById('login-card');
-            const registerCard = document.getElementById('register-card');
+.input-group { text-align: left; margin-bottom: 20px; }
 
-            if (view === 'register') {
-                loginCard.style.display = 'none';
-                registerCard.style.display = 'block';
-            } else {
-                loginCard.style.display = 'block';
-                registerCard.style.display = 'none';
-            }
-        }
-    </script>
-</body>
+label { display: block; margin-bottom: 8px; font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+input {
+    width: 100%;
+    padding: 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--border-line);
+    border-radius: 12px;
+    color: var(--text-bright);
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px rgba(142, 182, 155, 0.2); }
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    border: none;
+    border-radius: 12px;
+    color: var(--bg); 
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: var(--text-bright);
+    transform: translateY(-1px);
+}
+
+.switch-text { font-size: 13px; color: var(--text-dim); margin-top: 20px; opacity: 0.8; }
+.switch-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+.avatar-section-title {
+    text-align: left;
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.avatar-option {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: var(--input-bg);
+    border: 2px solid var(--border-line);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px; 
+    transition: all 0.2s ease;
+}
+
+.avatar-option:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.avatar-option.active {
+    border-color: var(--text-bright);
+    background: var(--border-line);
+    box-shadow: 0 0 12px var(--accent);
+    transform: scale(1.1);
+}
