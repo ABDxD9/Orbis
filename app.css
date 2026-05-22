@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Circles | Prototype</title>
+   <link rel="stylesheet" href="main1.css">
+</head>
+<body>
+
+    <div id="auth-container">
+    <div class="auth-card" id="login-card">
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Enter your details to join the circle.</p>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="login-username" placeholder="Enter username" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Secret Key</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-primary">Join Space</button>
+        </form>
+        
+        <p class="switch-text">New here? <a href="#" onclick="toggleAuth('register')">Create an temporary account</a></p>
+    </div>
+
+    <div class="auth-card" id="register-card" style="display: none;">
+        <h2>Create Account</h2>
+        <p class="subtitle">Set up a temporary identity.</p>
+        
+        <form id="register-form">
+    <div class="input-group">
+        <label>Choose Username</label>
+        <input type="text" id="reg-username" placeholder="Pick a username" required>
+    </div>
+    
+    <div class="input-group">
+        <label>Create Secret Key</label>
+        <input type="password" id="reg-password" placeholder="Make it hard" required>
+    </div>
+
+    <div class="avatar-section-title">Select Avatar</div>
+    <div class="avatar-grid">
+        <div class="avatar-option" data-avatar="🦊">🦊</div>
+        <div class="avatar-option" data-avatar="🐸">🐸</div>
+        <div class="avatar-option" data-avatar="🤖">🤖</div>
+        <div class="avatar-option" data-avatar="🐈">🐈</div>
+        <div class="avatar-option" data-avatar="🐿️">🐿️</div>
+        <div class="avatar-option" data-avatar="🦚">🦚</div>
+        <div class="avatar-option" data-avatar="🐍">🐍</div>
+        <div class="avatar-option" data-avatar="☃️">☃️</div>
+    </div>
+
+    <button type="submit" class="btn-primary">Generate Identity</button>
+</form>
+        
+        <p class="switch-text">Already have a key? <a href="#" onclick="toggleAuth('login')">Back to login</a></p>
+    </div>
+</div>
+<script>
+        // This function handles swapping between login and register cards
+        function toggleAuth(view) {
+            const loginCard = document.getElementById('login-card');
+            const registerCard = document.getElementById('register-card');
+
+            if (view === 'register') {
+                loginCard.style.display = 'none';
+                registerCard.style.display = 'block';
+            } else {
+                loginCard.style.display = 'block';
+                registerCard.style.display = 'none';
+            }
+        }
+    </script>
+</body>
