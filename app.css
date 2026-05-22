@@ -1,24 +1,131 @@
 :root {
-    --bg: #051F20;         
-    --card-bg: #0B2B26;   
-    --input-bg: #163832;   
-    --border-line: #235347;
-    --accent: #8EB69B;     
-    --text-bright: #DAF1DE;
-    --text-dim: #8EB69B;
+    --bg: #051F20;         /* Deepest Obsidian Green */
+    --card-bg: #0B2B26;    /* Dark Forest Green for containers */
+    --input-bg: #163832;   /* Medium Forest for fields */
+    --border-line: #235347;/* Emerald outline */
+    --accent: #8EB69B;     /* Pastel Sage Green for primary focus */
+    --text-bright: #DAF1DE;/* Crisp Mint-White for clear text */
+    --text-dim: #8EB69B;   /* Sage for labels and secondary text */
 }
 
 body {
     margin: 0;
-    background-color: var(--bg);
+    padding: 0;
+    /* Updated to look for your newly renamed file */
+    background-image: linear-gradient(rgba(5, 31, 32, 0.8), rgba(5, 31, 32, 0.8)), url('download.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    
     color: var(--text-bright);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
 }
 
+/* --- Layout Navigation Bar Styling --- */
+.main-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 31, 32, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-bright);
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-bright);
+}
+
+.btn-nav-auth {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-nav-auth:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* --- Content Frame Wrapper --- */
+.content-wrapper {
+    width: 100%;
+    max-width: 800px;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.web-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* --- Homepage Text Layouts --- */
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-bright);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.page-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    max-width: 650px;
+}
+
+/* --- Authentication Card Boxes --- */
 .auth-card {
     background: var(--card-bg);
     backdrop-filter: blur(20px);
@@ -57,7 +164,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     background: var(--accent);
     border: none;
     border-radius: 12px;
-    color: var(--bg); 
+    color: var(--bg);
     font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
@@ -73,6 +180,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .switch-text { font-size: 13px; color: var(--text-dim); margin-top: 20px; opacity: 0.8; }
 .switch-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
+/* --- Avatar Grid Elements --- */
 .avatar-section-title {
     text-align: left;
     font-size: 11px;
@@ -100,7 +208,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px; 
+    font-size: 28px;
     transition: all 0.2s ease;
 }
 
@@ -114,4 +222,10 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     background: var(--border-line);
     box-shadow: 0 0 12px var(--accent);
     transform: scale(1.1);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
