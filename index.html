@@ -115,7 +115,7 @@
                     <div class="metadata-list">
                         <div class="meta-item">
                             <label>Owner</label>
-                            <div class="meta-value highlight-text">👑 Ematar</div>
+                            <div class="meta-value highlight-text">👑 Aradhya</div>
                         </div>
 
                         <div class="meta-item">
@@ -274,7 +274,7 @@
     </footer>
 
     <script>
-        // Core Viewport Switching Architecture
+      
         function showPage(pageId) {
             document.querySelectorAll('.web-page').forEach(page => {
                 page.style.display = 'none';
@@ -285,7 +285,7 @@
                 targetPage.style.display = 'flex';
             }
             
-            // Layout Overrides: Hide structural footer elements during immersive views
+            
             const footer = document.getElementById('global-footer');
             if (pageId === 'auth' || pageId === 'workspace') {
                 footer.style.display = 'none';
@@ -296,7 +296,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Auth View Switcher Layouts
+      
         function toggleAuth(view) {
             const loginCard = document.getElementById('login-card');
             const registerCard = document.getElementById('register-card');
@@ -310,9 +310,9 @@
             }
         }
 
-        // Setup Selection Matrix for Registration View
+      
         const avatarOptions = document.querySelectorAll('.avatar-option');
-        let chosenAvatar = "🦊"; // Default initial choice
+        let chosenAvatar = "🦊"; 
 
         avatarOptions.forEach(option => {
             option.addEventListener('click', () => {
@@ -322,7 +322,7 @@
             });
         });
 
-        // Live Workspace Profile Synchronizer (Left Column Grid)
+  
         const wsAvatarCells = document.querySelectorAll('.ws-avatar-cell');
         wsAvatarCells.forEach(cell => {
             cell.addEventListener('click', function() {
@@ -331,13 +331,13 @@
                 
                 const selectedIcon = this.getAttribute('data-avatar');
                 
-                // Update Central Map Nodes
+               
                 const userMapNode = document.getElementById('user-map-node');
                 if (userMapNode) {
                     userMapNode.textContent = selectedIcon;
                 }
                 
-                // Update Right Column Metadata Roster Row
+                
                 const rosterYou = document.getElementById('ws-roster-you');
                 const currentUsername = document.getElementById('ws-display-username').value;
                 if (rosterYou) {
@@ -346,7 +346,7 @@
             });
         });
 
-        // Crypto Secret Key Hidden State Controller
+     
         function togglePassVisibility() {
             const passInput = document.getElementById('ws-room-pass');
             if (passInput) {
@@ -354,7 +354,7 @@
             }
         }
 
-        // Universal Gateway Route Submit Handler
+       
         function handleAuthSubmit(event, mode) {
             event.preventDefault(); 
             
@@ -365,12 +365,12 @@
                 usernameInput = document.getElementById('login-username').value;
             }
 
-            // Provision identity fields into Workspace fields on successful access
+            
             document.getElementById('ws-display-username').value = usernameInput;
             document.getElementById('user-map-node').textContent = chosenAvatar;
             document.getElementById('ws-roster-you').textContent = `${chosenAvatar} ${usernameInput}`;
 
-            // Sync active states inside Left Sidebar panel selector to match Registration step choice
+            
             wsAvatarCells.forEach(cell => {
                 if (cell.getAttribute('data-avatar') === chosenAvatar) {
                     cell.classList.add('active');
@@ -379,7 +379,7 @@
                 }
             });
 
-            // Auto-redirect directly into Workspace dashboard hub view!
+           
             showPage('workspace');
         }
         
