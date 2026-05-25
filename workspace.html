@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbis | Workspace Console</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="content-wrapper" style="padding: 0; margin: 0; height: 100vh;">
+        <section id="page-workspace" class="web-page workspace-panel-wrapper" style="display: flex; height: 100%;">
+            <div id="main-application-hub" class="workspace-container">
+                
+                <aside id="left-identity-panel" class="workspace-sidebar left-sidebar">
+                    <div class="sidebar-block">
+                        <h3>User Settings</h3>
+                        <p class="sidebar-desc">Manage your temporary session parameters.</p>
+                        
+                        <div class="setting-row">
+                            <label>Profile Status</label>
+                            <div class="status-badge">Active Node</div>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>Ephemeral ID</label>
+                            <input type="text" id="ws-display-username" value="Guest_Agent" readonly class="sidebar-input">
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <h3>Change Avatar</h3>
+                        <p class="sidebar-desc">Switch your projection dynamically on the map grid.</p>
+                        <div class="workspace-avatar-grid">
+                            <div class="ws-avatar-cell active" data-avatar="🦊">🦊</div>
+                            <div class="ws-avatar-cell" data-avatar="🐸">🐸</div>
+                            <div class="ws-avatar-cell" data-avatar="🤖">🤖</div>
+                            <div class="ws-avatar-cell" data-avatar="🐈">🐈</div>
+                            <div class="ws-avatar-cell" data-avatar="🐿️">🐿️</div>
+                            <div class="ws-avatar-cell" data-avatar="🦚">🦚</div>
+                            <div class="ws-avatar-cell" data-avatar="🐍">🐍</div>
+                            <div class="ws-avatar-cell" data-avatar="☃️">☃️</div>
+                        </div>
+                        <button class="btn-sidebar-action">Update Identity</button>
+                    </div>
+                </aside>
+
+                <div id="center-canvas-workspace" class="center-portal-column">
+                    
+                    <div class="chic-action-wrapper">
+                        <button class="btn-group-chic" onclick="enterGroupChat()">ENTER GROUP CHAT</button>
+                    </div>
+
+                    <div class="workspace-split-container">
+                        
+                        <div class="orbit-visual-wrapper">
+                            <div class="orbital-ring-system">
+                                <div class="spatial-avatar pos-center" id="user-map-node">🦊</div>
+                                
+                                <div class="spatial-avatar pos-top-left" onclick="openPrivateNode('Cryptic_Node', '🤖')">🤖</div>
+                                <div class="spatial-avatar pos-top-right" onclick="openPrivateNode('User_Alpha', '🐸')">🐸</div>
+                                <div class="spatial-avatar pos-bottom-left" onclick="openPrivateNode('Matrix_Runner', '🐈')">🐈</div>
+                                <div class="spatial-avatar pos-bottom-right" onclick="openPrivateNode('Cipher_Ghost', '☃️')">☃️</div>
+                            </div>
+                            
+                            <div class="canvas-indicator">
+                                <span class="pulse-dot"></span> Live Presence Grid Map
+                            </div>
+                        </div>
+
+                        <div id="private-node-panel" class="private-chat-panel">
+                            <div class="panel-header">
+                                <span id="active-node-title" style="font-size: 18px; font-weight: 600; color: #ffffff; letter-spacing: normal;"></span>
+                                <button class="btn-close-console" onclick="closePrivateNode()"> × </button>
+                            </div>
+                            
+                            <div class="console-message-stream" id="chat-stream">
+                                <div class="system-log">[SYSTEM]: Secure channel initiated. Zero footprints active.</div>
+                            </div>
+
+                            <div class="console-input-row">
+                                <span class="terminal-prompt">&gt;</span>
+                                <input type="text" id="console-msg-input" placeholder="Type an encrypted message..." autocomplete="off" onkeydown="if(event.key === 'Enter') { event.preventDefault(); executeMessageSend(); }">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <aside id="right-metadata-panel" class="workspace-sidebar right-sidebar">
+                    <div class="sidebar-block">
+                        <h3>Group Details</h3>
+                        <p class="sidebar-desc">Live metadata matrix for this temporary room channel.</p>
+                    </div>
+
+                    <div class="metadata-list">
+                        <div class="meta-item">
+                            <label>Owner</label>
+                            <div class="meta-value highlight-text">👑 Ematar</div>
+                        </div>
+
+                        <div class="meta-item">
+                            <label>Member List (5)</label>
+                            <div class="meta-member-list">
+                                <div class="member-row"><span id="ws-roster-you">🦊 Guest_Agent</span> <span class="tag-you">You</span></div>
+                                <div class="member-row"><span>🐸 User_Alpha</span></div>
+                                <div class="member-row"><span>🤖 Cryptic_Node</span></div>
+                                <div class="member-row"><span>🐈 Matrix_Runner</span></div>
+                                <div class="member-row"><span>☃️ Cipher_Ghost</span></div>
+                            </div>
+                        </div>
+
+                        <div class="meta-item">
+                            <label>Active Till</label>
+                            <div class="meta-value countdown-timer">2026-05-22 23:59 UTC</div>
+                        </div>
+
+                        <div class="meta-item">
+                            <label>Room Password</label>
+                            <div class="password-display-wrapper">
+                                <input type="password" value="OasisSecretKey2026" readonly id="ws-room-pass">
+                                <button class="btn-toggle-view" onclick="togglePassVisibility()">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Crypto Secret Key Hidden State Controller
+        function togglePassVisibility() {
+            const passInput = document.getElementById('ws-room-pass');
+            if (passInput) {
+                passInput.type = passInput.type === 'password' ? 'text' : 'password';
+            }
+        }
+
+        // Isolated interaction handler for avatar sidebar grid inside workspace
+        (function() {
+            const wsAvatarCells = document.querySelectorAll('.ws-avatar-cell');
+            wsAvatarCells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    wsAvatarCells.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const selectedIcon = this.getAttribute('data-avatar');
+                    const userMapNode = document.getElementById('user-map-node');
+                    if (userMapNode) userMapNode.textContent = selectedIcon;
+                    
+                    const rosterYou = document.getElementById('ws-roster-you');
+                    const currentUsername = document.getElementById('ws-display-username').value;
+                    if (rosterYou) rosterYou.textContent = `${selectedIcon} ${currentUsername}`;
+                });
+            });
+        })();
+    </script>
+
+    <script src="app1.js"></script>
+</body>
+</html>
