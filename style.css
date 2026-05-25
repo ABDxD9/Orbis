@@ -1,15 +1,13 @@
 :root {
-    /* Pure Black, White, and Blue Matrix Mapping */
-    --bg: #0B0F19;             /* Deep Void Space Black (Dark Core) */
-    --card-bg: #161F30;        /* Structured Charcoal/Dark Slate Blue Panel */
-    --input-bg: #060A12;       /* Ultra-Dark Void for input fields and tracking grids */
-    --border-line: #2A3B5C;    /* Structural Muted Steel Blue for crisp layout borders */
-    
-    --accent: #38BDF8;         /* Electric Neon Cyan/Blue for focuses, labels & highlights */
-    --light-blue: #E0F2FE;     /* Ultra-Crisp Ice Blue for key actions and active text states */
-    
-    --text-bright: #FFFFFF;    /* High-contrast Pure White for titles and core headers */
-    --text-dim: #94A3B8;       /* Slate Gray for secondary paragraphs and descriptions */
+   
+    --bg: #0B0F19;            
+    --card-bg: #161F30;       
+    --input-bg: #060A12;       
+    --border-line: #2A3B5C;    
+    --accent: #38BDF8;         
+    --light-blue: #E0F2FE;     
+    --text-bright: #FFFFFF;    
+    --text-dim: #94A3B8;       
 }
 
 body {
@@ -30,7 +28,6 @@ body {
     overflow-y: auto;
 }
 
-/* --- Floating Navigation Header --- */
 .main-header {
     width: 90%;
     max-width: 1100px;
@@ -52,7 +49,7 @@ body {
 .logo {
     font-size: 20px;
     font-weight: 700;
-    color: var(--accent); /* Hits that striking Electric Neon Blue */
+    color: var(--accent); 
     cursor: pointer;
     letter-spacing: 0.5px;
 }
@@ -87,7 +84,7 @@ body {
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
-/* --- Content Wrapper Frame --- */
+
 .content-wrapper {
     width: 100%;
     margin-top: 40px;
@@ -103,7 +100,7 @@ body {
     animation: fadeIn 0.3s ease-out;
 }
 
-/* --- Homepage Scrolling Sections --- */
+
 .homepage-container {
     width: 100%;
     display: flex;
@@ -156,12 +153,11 @@ body {
 .feature-text-block p { font-size: 1.1rem; line-height: 1.7; color: var(--text-bright); }
 .feature-graphic-placeholder { flex: 1; height: 300px; background: var(--input-bg); border: 2px dashed var(--border-line); border-radius: 20px; display: flex; justify-content: center; align-items: center; color: var(--accent); font-weight: 600; }
 
-/* Separate Text Panels */
 .standard-panel { max-width: 700px; padding: 60px 20px; text-align: center; }
 .standard-panel h2 { font-size: 2.5rem; color: var(--accent); }
 .page-text { font-size: 1.1rem; line-height: 1.7; color: var(--text-bright); }
 
-/* --- Authentication Card Framework --- */
+/* Authentication Card */
 .auth-panel-wrapper { padding: 60px 20px; }
 .auth-card { background: var(--card-bg); backdrop-filter: blur(20px); border: 1px solid var(--border-line); padding: 40px; border-radius: 28px; width: 350px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); text-align: center; }
 .auth-card h2 { margin-top: 0; font-weight: 600; color: var(--text-bright); }
@@ -188,7 +184,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .switch-text { font-size: 13px; color: var(--text-dim); margin-top: 20px; }
 .switch-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-/* --- Identity Avatar Picker Layout --- */
+
 .avatar-section-title { text-align: left; font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 10px; }
 .avatar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 25px; }
 .avatar-option { width: 65px; height: 65px; border-radius: 50%; background: var(--input-bg); border: 2px solid var(--border-line); cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 28px; transition: all 0.2s ease; }
@@ -200,7 +196,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
    ========================================================================== */
 .workspace-panel-wrapper {
     width: 100vw;
-    height: calc(100vh - 100px); /* Consumes total screen height minus header offsets */
+    height: calc(100vh - 100px); 
     margin: 0;
     display: flex;
     justify-content: center;
@@ -214,13 +210,13 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .workspace-container {
     width: 100%;
     max-width: 1600px;
-    display: flex; /* Switched from rigid Grid layout to flexible Flexbox columns */
+    display: flex;
     align-items: stretch;
     gap: 24px;
     position: relative;
 }
 
-/* Common Workspace Column Sidebar Panels */
+
 .workspace-sidebar {
     background: rgba(22, 31, 48, 0.75);
     backdrop-filter: blur(20px);
@@ -235,7 +231,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     overflow-y: auto;
     box-shadow: 0 15px 35px rgba(0,0,0,0.5);
     
-    /* Elegant state transitions for seamless layout collapsing */
+   
     width: 300px;
     opacity: 1;
     visibility: visible;
@@ -245,7 +241,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
                 visibility 0.6s;
 }
 
-/* Adjust layout rules for the right metadata block */
+
 .right-sidebar {
     width: 320px;
 }
@@ -298,7 +294,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     box-sizing: border-box;
 }
 
-/* In-App Live Interactive Dynamic Switcher Asset Layout */
+
 .workspace-avatar-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -359,12 +355,12 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     min-width: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;             /* Fits exactly within the floating dashboard */
+    height: 100%;           
     box-sizing: border-box;
-    overflow: hidden;         /* Prevents any inner element from dropping below */
+    overflow: hidden;        
 }
 
-/* Chic Top Area Command Header Wrapper */
+
 .chic-action-wrapper {
     width: 100%;
     display: flex;
@@ -394,17 +390,17 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
 }
 
-/* Inner Split Sub-Grid Matrix Pipeline */
+
 .workspace-split-container {
     display: flex;
     width: 100%;
-    flex: 1;                  /* Dynamically takes up exactly what space is available */
+    flex: 1;                 
     gap: 24px;
     align-items: stretch;
-    overflow: hidden;         /* Keeps elements securely boxed inside */
+    overflow: hidden;        
 }
 
-/* Left Canvas Half Workspace: Houses Concentric Presence Path Ring */
+
 .orbit-visual-wrapper {
     flex: 1;
     display: flex;
@@ -415,7 +411,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     background: #0d121f;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
-    height: 100%;             /* Fills out the 580px height matrix nicely */
+    height: 100%;            
 }
 
 .orbital-ring-system {
@@ -431,7 +427,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Spatial Grid Nodes Projection Placement Settings */
+
 .spatial-avatar {
     position: absolute;
     width: 52px;
@@ -454,13 +450,11 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     transform: scale(1.15);
 }
 
-/* Dynamic Counter-Rotation configuration to lock emoji graphics upright during spins */
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* Coordinates Map Allocations */
 .spatial-avatar.pos-center {
     top: 50%;
     left: 50%;
@@ -474,7 +468,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .spatial-avatar.pos-bottom-left { bottom: 15px; left: 15px; }
 .spatial-avatar.pos-bottom-right { bottom: 15px; right: 15px; }
 
-/* Dynamic Presence System Indicators */
+
 .canvas-indicator {
     position: absolute;
     bottom: 0px;
@@ -501,51 +495,50 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     animation: broadcastPulse 2.0s infinite ease-in-out;
 }
 
-/* Right Canvas Half Workspace: The Invisible Encrypted Messaging Panel */
 .private-chat-panel {
-    display: none; /* Controlled dynamically by .chat-active overrides */
+    display: none; 
     flex-direction: column;
-    height: 100%;  /* Fills the 75vh container height exactly */
+    height: 100%;  
     background: var(--card-bg);
     border: 1px solid var(--border-line);
     border-radius: 16px;
-    overflow: hidden; /* Keeps the headers and input locked inside */
+    overflow: hidden; 
 }
 
-/* Make sure your inner messages container has a set height and scrolls */
+
 .console-message-stream {
     flex: 1;
     overflow-y: auto;
     padding: 16px;
-    background: #090d16;       /* Slightly darker than panel card for contrast */
+    background: #090d16;       
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 2px;       /* Pushes the input row slightly away from the lower boundary border */
+    margin-bottom: 2px;      
 }
 .workspace-panel-wrapper {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background-color: #0b0f19; /* Or whatever your dark background color variable is */
+    background-color: #0b0f19; 
     display: flex;
     flex-direction: column;
 }
 
 .workspace-container {
     display: flex;
-    width: 95vw;                /* Takes up 95% of screen width (leaves clean left/right margins) */
-    height: 90vh;               /* Takes up 90% of screen height (leaves clean top/bottom margins) */
-    max-width: 1440px;          /* Prevents it from spreading too wide on ultra-wide monitors */
-    max-height: 850px;          /* Prevents it from getting too tall on massive displays */
-    background: #0b0f19;        /* Slightly lighter background base matrix frame */
+    width: 95vw;                
+    height: 90vh;              
+    max-width: 1440px;         
+    max-height: 850px;         
+    background: #0b0f19;        
     border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 28px;        /* Adds a smooth rounded border frame around your whole app */
+    border-radius: 28px;       
     padding: 20px;
     box-sizing: border-box;
     gap: 20px;
     overflow: hidden;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5); /* Adds a premium floating depth drop-shadow */
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5); 
 }
 
 .center-portal-column {
@@ -560,7 +553,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .workspace-split-container {
     display: flex;
     width: 100%;
-    height: 580px;            /* Hard, fixed height so it never leaks down past the screen */
+    height: 580px;            
     gap: 24px;
     align-items: stretch;
     position: relative;
@@ -569,7 +562,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 .workspace-sidebar {
     width: 260px;
     flex: 0 0 260px;
-    height: 100%;               /* Perfectly fills the 90vh floating card frame wrapper */
+    height: 100%;               
     background: #0d121f;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
@@ -579,7 +572,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     flex-direction: column;
     gap: 20px;
 }
-/* Default state: Map takes up the full container space */
+
 .orbit-visual-wrapper {
     flex: 1;
     display: flex;
@@ -590,12 +583,12 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     position: relative;
 }
 
-/* Split screen state: Map scales down gracefully to let chat panel slide into view */
+
 .workspace-container.chat-active .orbit-visual-wrapper {
     flex: 0 0 55%;
 }
 
-/* Chat terminal default layout hidden off screen */
+
 .private-chat-panel {
     display: none; 
     flex: 1;
@@ -603,8 +596,8 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     background: #0d121f; 
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;   
-    overflow: hidden;      /* Prevents content from leaking past the rounded edges */
-    height: 100%;          /* Forces it to stick strictly to the 580px container height */
+    overflow: hidden;      
+    height: 100%;          
     box-sizing: border-box;
 }
 
@@ -612,11 +605,11 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     display: flex;
 }
 
-/* THE CRITICAL ADJUSTMENT: Lock the scrolling zone */
+
 .console-message-stream {
-    height: 440px;            /* Hard limits the message stream window size */
+    height: 440px;           
     max-height: 440px;
-    overflow-y: auto;         /* Creates an internal scrollbar when texts fill up */
+    overflow-y: auto;         
     padding: 16px;
     background: #090d16;       
     display: flex;
@@ -629,37 +622,37 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
    --- ACTIVE RUNTIME HUB CLASS MODIFIER STATES ---
    ========================================================================== */
 
-/* State A: When an active user-to-user console session connects */
+
 .workspace-container.chat-active .workspace-sidebar {
     width: 0px !important;
     padding: 0 !important;
     margin: 0 !important;
     opacity: 0;
-    visibility: hidden; /* Gently moves details panels off-screen */
+    visibility: hidden;
 }
 
-/* State B: Readjust proportions within the split area engine view */
+
 .workspace-container.chat-active .workspace-split-container {
     gap: 24px;
 }
 
 .workspace-container.chat-active .orbit-visual-wrapper {
-    flex: 0 0 58%; /* Locks circle ring footprint to 58% boundary width */
+    flex: 0 0 58%; 
 }
 
 .workspace-container.chat-active .orbital-ring-system {
-    transform: scale(0.92); /* Scales down node clusters slightly to prevent crowding bounds */
+    transform: scale(0.92); 
 }
 
-/* State C: Animate and transition the chat stream panel wide open */
+
 .workspace-container.chat-active .private-chat-panel {
-    width: 42%; /* Commands remaining screen layout */
+    width: 42%;
     opacity: 1;
     visibility: visible;
     padding: 24px;
 }
 
-/* Internal Chat Component Dressing Styles */
+
 .panel-header {
     display: flex;
     justify-content: space-between;
@@ -704,17 +697,17 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     font-size: 11px;
 }
 
-/* 1. The Input Container Row Row padding setup */
+
 .console-input-row {
     display: flex;
     align-items: center;
     background: #111625;   
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 0 20px;          /* Clean side padding */
+    padding: 0 20px;          
     box-sizing: border-box;
     gap: 12px;
     width: 100%;
-    height: 60px;             /* Exact remainder of our 580px height calculation */
+    height: 60px;            
     position: relative;
 }
 
@@ -725,7 +718,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     outline: none;
     color: #ffffff;
     font-size: 14px;
-    height: 100%;             /* Fills the 60px container cleanly */
+    height: 100%;             
     margin: 0;
     padding: 0;
 }
@@ -737,14 +730,14 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     font-family: monospace;
 }
 
-/* RIGHT SIDEBAR: METADATA ENGINE MODULES */
+
 .metadata-list {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* --- UTILITY FOOTER STYLING --- */
+
 .main-footer {
     width: 100vw;
     background-color: #060A12;
@@ -866,7 +859,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     color: var(--text-dim);
 }
 
-/* --- Mobile and Dashboard Responsiveness Overrides --- */
+
 @media (max-width: 1100px) {
     .workspace-panel-wrapper {
         height: auto;
@@ -896,7 +889,7 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     .footer-bottom-divider { flex-direction: column; gap: 20px; text-align: center; }
 }
 
-/* --- Structural Engine Keyframe Animations --- */
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to { opacity: 1; transform: translateY(0); }
@@ -921,8 +914,8 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #0B0F19; /* Matches your core deep background color */
-    z-index: 99999; /* Forces it to sit on top of absolutely everything else */
+    background-color: #0B0F19; 
+    z-index: 99999; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -938,13 +931,13 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 }
 
 .loader-gif {
-    width: 120px;       /* Adjust this size depending on your GIF's proportions */
+    width: 120px;     
     height: auto;
-    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3)); /* Subtle neon blue glow */
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3)); 
 }
 
 .loader-text {
-    color: var(--accent); /* Electric Neon Blue */
+    color: var(--accent); 
     font-family: monospace;
     font-size: 13px;
     letter-spacing: 2px;
@@ -952,23 +945,23 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     animation: textPulse 1.5s infinite ease-in-out;
 }
 
-/* Smooth text pulse animation */
+
 @keyframes textPulse {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
 }
 
-/* Utility class to fade out the loader via JavaScript */
+
 #portal-loader.fade-out {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Allows users to click elements underneath once gone */
+    pointer-events: none; 
 }
 .loader-gif {
-    width: 450px;        /* Massive focal size for desktop screens */
-    max-width: 85vw;     /* Safety bound: scales down automatically on mobile phones */
-    height: auto;        /* Preserves aspect ratio perfectly */
-    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.4)); /* Enhanced neon blue glow to match the larger scale */
+    width: 450px;        
+    max-width: 85vw;     
+    height: auto;       
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.4)); 
 }
 #portal-loader {
     position: fixed;
@@ -982,20 +975,19 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     justify-content: center;
     align-items: center;
     
-    /* 1. This tells the browser to smoothly animate changes over 0.6 seconds */
     transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s;
     pointer-events: all;
 }
 
-/* 2. When JavaScript applies this class, the fade mechanism activates */
+
 #portal-loader.fade-out {
     opacity: 0;
     visibility: hidden;
-    pointer-events: none; /* Safely drops the barrier so clicks pass right through */
+    pointer-events: none; 
 }
 #enter-portal-btn {
     background: transparent;
-    color: #38bdf8; /* Your electric blue tone */
+    color: #38bdf8;
     border: 1px solid #38bdf8;
     padding: 12px 32px;
     font-family: monospace;
@@ -1008,8 +1000,8 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 }
 
 #enter-portal-btn:hover {
-    background: rgba(56, 189, 248, 0.1); /* Subtle blue fill on hover */
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); /* Soft glow */
+    background: rgba(56, 189, 248, 0.1); 
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); 
 }
 /* ==========================================================================
    --- MESSAGE BUBBLE RENDERING CORE ---
@@ -1027,11 +1019,11 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
 }
 
 .chat-row.msg-you {
-    align-items: flex-end; /* Pushes your messages cleanly to the right edge */
+    align-items: flex-end; 
 }
 
 .chat-row.msg-them {
-    align-items: flex-start; /* Keeps external member text left-aligned */
+    align-items: flex-start; 
 }
 
 .msg-bubble {
@@ -1043,14 +1035,14 @@ input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px r
     word-break: break-word;
 }
 
-/* Styled line for your inputs */
+
 .msg-you .msg-bubble {
     background: rgba(56, 189, 248, 0.1);
     border: 1px solid rgba(56, 189, 248, 0.3);
     color: var(--light-blue);
 }
 
-/* Styled line for incoming text arrays */
+
 .msg-them .msg-bubble {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-line);
