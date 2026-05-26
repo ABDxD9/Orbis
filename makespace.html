@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bervis | Create Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page-container" style="display: flex; min-height: 100vh; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+        
+        <div class="auth-card" style="width: 100%; max-width: 450px;">
+            <h2 class="auth-title" style="margin-bottom: 8px;">Initialize New Space</h2>
+            <p class="auth-subtitle" style="color: var(--text-dim); margin-bottom: 24px; font-size: 14px;">Configure your bervis environment parameters</p>
+            
+            <form id="make-space-form" action="workspace.html" method="GET">
+    <div class="input-group">
+        <label>Group's Name</label>
+        <input type="text" name="group" placeholder="e.g., Alpha Team Void" required>
+    </div>
+
+    <div class="input-group">
+        <label>Your Name</label>
+        <input type="text" name="user" placeholder="Enter your display moniker" required>
+    </div>
+
+    <div class="input-group">
+        <label>Space Password</label>
+        <div class="password-input-wrapper" style="position: relative; display: flex; align-items: center; width: 100%;">
+            <input type="password" id="ws-room-pass" name="password" placeholder="Set room password" required style="width: 100%; padding-right: 44px;">
+            <button type="button" onclick="togglePassVisibility()" class="btn-toggle-eye" aria-label="Toggle password visibility" style="position: absolute; right: 12px; background: none; border: none; padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                 <svg class="eye-icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                 </svg>
+                 <svg class="eye-icon-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                     <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                     <line x1="1" y1="1" x2="23" y2="23"></line>
+                 </svg>
+            </button>
+        </div>
+    </div>
+
+    <input type="hidden" name="maxCapacity" id="hidden-capacity" value="30">
+    <input type="hidden" name="vanishingTime" id="hidden-hours" value="24">
+
+    <div class="clock-picker-row" style="display: flex; gap: 20px; margin-top: 20px; width: 100%;">
+        
+        <div class="picker-column" style="flex: 1; text-align: center;">
+            <label style="display: block; font-size: 13px; color: var(--accent); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Max Members</label>
+            <div class="wheel-viewport" id="wheel-capacity">
+                <div class="wheel-highlight"></div>
+                <div class="wheel-scroller" id="scroll-capacity"></div>
+            </div>
+        </div>
+
+        <div class="picker-column" style="flex: 1; text-align: center;">
+            <label style="display: block; font-size: 13px; color: var(--accent); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Active Hours</label>
+            <div class="wheel-viewport" id="wheel-hours">
+                <div class="wheel-highlight"></div>
+                <div class="wheel-scroller" id="scroll-hours"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn-primary" style="width: 100%; margin-top: 28px; height: 48px;">Instantiate Space</button>
+    
+    <div style="text-align: center; margin-top: 16px;">
+        <a href="index1.html" style="color: var(--text-dim); text-decoration: none; font-size: 13px;">← Go Back</a>
+    </div>
+</form>
+        </div>
+
+        <footer class="main-footer">
+            <p>© 2026 bervis. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function togglePassVisibility() {
+            const passInput = document.getElementById('ws-room-pass');
+            const eyeOpen = document.querySelector('.eye-icon-open');
+            const eyeClosed = document.querySelector('.eye-icon-closed');
+            if (!passInput) return;
+
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                if (eyeOpen) eyeOpen.style.display = 'none';
+                if (eyeClosed) eyeClosed.style.display = 'block';
+            } else {
+                passInput.type = 'password';
+                if (eyeOpen) eyeOpen.style.display = 'block';
+                if (eyeClosed) eyeClosed.style.display = 'none';
+            }
+        }
+
+        // Catch submission data to store values before forwarding onto workspace.html
+        document.getElementById('make-space-form').addEventListener('submit', (e) => {
+            const formData = new FormData(e.target);
+            sessionStorage.setItem('username', formData.get('user'));
+            sessionStorage.setItem('spaceGroupName', formData.get('group'));
+            sessionStorage.setItem('spaceCapacity', formData.get('maxCapacity'));
+        });
+    </script>
+    <script>
+    function togglePassVisibility() {
+        const passInput = document.getElementById('ws-room-pass');
+        const eyeOpen = document.querySelector('.eye-icon-open');
+        const eyeClosed = document.querySelector('.eye-icon-closed');
+        if (!passInput) return;
+
+        if (passInput.type === 'password') {
+            passInput.type = 'text';
+            if (eyeOpen) eyeOpen.style.display = 'none';
+            if (eyeClosed) eyeClosed.style.display = 'block';
+        } else {
+            passInput.type = 'password';
+            if (eyeOpen) eyeOpen.style.display = 'block';
+            if (eyeClosed) eyeClosed.style.display = 'none';
+        }
+    } 
+
+    // Generate Tumbler Scroll Wheel Lists programmatically
+    function buildWheel(containerId, maxItems, suffix, defaultValue, hiddenInputId) {
+        const scroller = document.getElementById(containerId);
+        const viewport = scroller.parentElement;
+        const hiddenInput = document.getElementById(hiddenInputId);
+
+        for (let i = 1; i <= maxItems; i++) {
+            const item = document.createElement('div');
+            item.className = 'wheel-item';
+            item.textContent = `${i} ${suffix}`;
+            item.setAttribute('data-val', i);
+            scroller.appendChild(item);
+        }
+
+        // Tracking focus mechanics during scrolling animations
+        function updateSelection() {
+            const viewportRect = viewport.getBoundingClientRect();
+            const centerPoint = viewportRect.top + (viewportRect.height / 2);
+            const items = scroller.getElementsByClassName('wheel-item');
+            
+            let currentSelected = null;
+            let closestDistance = Infinity;
+
+            for (let item of items) {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenter = itemRect.top + (itemRect.height / 2);
+                const distance = Math.abs(centerPoint - itemCenter);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    currentSelected = item;
+                }
+                item.classList.remove('selected-focus');
+            }
+
+            if (currentSelected) {
+                currentSelected.classList.add('selected-focus');
+                hiddenInput.value = currentSelected.getAttribute('data-val');
+            }
+        }
+
+        viewport.addEventListener('scroll', updateSelection);
+
+        // Snap to configuration defaults initially on rendering process
+        setTimeout(() => {
+            const targetItem = scroller.children[defaultValue - 1];
+            if (targetItem) {
+                viewport.scrollTop = targetItem.offsetTop - 50;
+                updateSelection();
+            }
+        }, 100);
+    }
+
+    // Initialize both Clock Pickers on Page DOM load
+    document.addEventListener("DOMContentLoaded", () => {
+        buildWheel('scroll-capacity', 50, 'Users', 30, 'hidden-capacity');
+        buildWheel('scroll-hours', 60, 'Hours', 24, 'hidden-hours');
+    });
+
+    // Capture submission parameter values safely
+    document.getElementById('make-space-form').addEventListener('submit', (e) => {
+        const formData = new FormData(e.target);
+        sessionStorage.setItem('username', formData.get('user'));
+        sessionStorage.setItem('spaceGroupName', formData.get('group'));
+        sessionStorage.setItem('spaceRoomPassword', formData.get('password'));
+        sessionStorage.setItem('spaceCapacity', document.getElementById('hidden-capacity').value);
+        sessionStorage.setItem('spaceHoursActive', document.getElementById('hidden-hours').value);
+    });
+</script>
+</body>
+</html>
