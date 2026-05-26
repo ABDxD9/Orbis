@@ -181,7 +181,7 @@
         buildWheel('scroll-hours', 60, 'Hours', 24, 'hidden-hours');
     });
 
-    // Capture submission parameter values safely
+   
     document.getElementById('make-space-form').addEventListener('submit', (e) => {
         const formData = new FormData(e.target);
         sessionStorage.setItem('username', formData.get('user'));
