@@ -96,7 +96,7 @@
             }
         }
 
-        // Catch submission data to store values before forwarding onto workspace.html
+
         document.getElementById('make-space-form').addEventListener('submit', (e) => {
             const formData = new FormData(e.target);
             sessionStorage.setItem('username', formData.get('user'));
@@ -122,7 +122,7 @@
         }
     } 
 
-    // Generate Tumbler Scroll Wheel Lists programmatically
+    
     function buildWheel(containerId, maxItems, suffix, defaultValue, hiddenInputId) {
         const scroller = document.getElementById(containerId);
         const viewport = scroller.parentElement;
@@ -136,7 +136,7 @@
             scroller.appendChild(item);
         }
 
-        // Tracking focus mechanics during scrolling animations
+       
         function updateSelection() {
             const viewportRect = viewport.getBoundingClientRect();
             const centerPoint = viewportRect.top + (viewportRect.height / 2);
@@ -165,7 +165,7 @@
 
         viewport.addEventListener('scroll', updateSelection);
 
-        // Snap to configuration defaults initially on rendering process
+       
         setTimeout(() => {
             const targetItem = scroller.children[defaultValue - 1];
             if (targetItem) {
@@ -175,7 +175,7 @@
         }, 100);
     }
 
-    // Initialize both Clock Pickers on Page DOM load
+  
     document.addEventListener("DOMContentLoaded", () => {
         buildWheel('scroll-capacity', 50, 'Users', 30, 'hidden-capacity');
         buildWheel('scroll-hours', 60, 'Hours', 24, 'hidden-hours');
