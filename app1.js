@@ -241,9 +241,6 @@ window.enterGroupChat = function() {
     console.log("Global mesh network communication layer activated.");
     alert("Broadcasting network hub channel initializing...");
 };
-// ==========================================================================
-// --- SPATIAL CORES SPLIT SCREEN VIEW ENGINE (GLOBAL SCOPE) ---
-// ==========================================================================
 
 
 window.openPrivateNode = function(nodeName, nodeAvatar) {
