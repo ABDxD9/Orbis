@@ -1,8 +1,4 @@
-/**
- * ==========================================================================
- * ORBIS CORE APPLICATION INTERFACE MODULE ENGINE
- * ==========================================================================
- */
+
 
 
 function showPage(pageId) {
@@ -170,11 +166,6 @@ function dismissLoader() {
 }
 
 
-/**
- * ==========================================================================
- * EXPOSED SPLIT VIEW MODE & PEER MESSAGE TRANSACTION HOOKS (GLOBAL SCOPE)
- * ==========================================================================
- */
 
 
 window.openPrivateNode = function(nodeName, avatarIcon) {
