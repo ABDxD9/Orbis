@@ -157,7 +157,7 @@ body {
 .standard-panel h2 { font-size: 2.5rem; color: var(--accent); }
 .page-text { font-size: 1.1rem; line-height: 1.7; color: var(--text-bright); }
 
-/* Authentication Card */
+/* Authentication Place */
 .auth-panel-wrapper { padding: 60px 20px; }
 .auth-card { background: var(--card-bg); backdrop-filter: blur(20px); border: 1px solid var(--border-line); padding: 40px; border-radius: 28px; width: 350px; box-shadow: 0 25px 50px rgba(0,0,0,0.8); text-align: center; }
 .auth-card h2 { margin-top: 0; font-weight: 600; color: var(--text-bright); }
